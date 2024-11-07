@@ -22,6 +22,7 @@ DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
+PORT = os.getenv('PORT','8000')
 # restAPI
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
