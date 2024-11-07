@@ -15,12 +15,14 @@ SECRET_KEY = 'django-insecure-ix%094l2&nj*hu@au6uc_jc+ai7&p($iuh*x6e7!7sb&=e80of
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://expense-tracker-backend-5mn4.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['expense-tracker-backend-5mn4.onrender.com', 'localhost']
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Database Configuration using dj-database-url
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+
 
 PORT = os.getenv('PORT','8000')
 # restAPI
@@ -33,6 +35,11 @@ REST_FRAMEWORK = {
     ],
 }
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',  # Add your local frontend URL here
+]
+
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'corsheaders',
     'expensetracker',
     'rest_framework',
 ]
@@ -54,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'expense_tracker.urls'
