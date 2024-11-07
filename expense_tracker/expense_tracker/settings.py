@@ -13,7 +13,7 @@ load_dotenv()
 SECRET_KEY = 'django-insecure-ix%094l2&nj*hu@au6uc_jc+ai7&p($iuh*x6e7!7sb&=e80of'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['expensetracker.render.com', 'localhost']
 
